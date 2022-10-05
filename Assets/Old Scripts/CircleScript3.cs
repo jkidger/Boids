@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleScript4 : MonoBehaviour
+public class CircleScript3 : MonoBehaviour
 {
     static float rayLength = 10;
     static float droneSpeed = 0.1f;
@@ -28,14 +28,20 @@ public class CircleScript4 : MonoBehaviour
         string radiusSearch = gameObject.name + "Radius";
         scanCircle = GameObject.Find(radiusSearch);
 
-        GameObject[] list = GameObject.FindGameObjectsWithTag("drone");
-        foreach (GameObject check in list)
+        for (int i = 0; i < 15; i++)
         {
-            if (check.name != gameObject.name)
-            {
-                neighbours.Add(check);
-            }
+            GameObject newDrone = GameObject.Instantiate(GameObject.Find("Dead"));
+            newDrone.name = "Gen" + i;
+            newDrone.tag = "drone";
+            newDrone.AddComponent<CircleScript4>();
+            GameObject newDroneRadius = GameObject.Instantiate(GameObject.Find("DeadRadius"));
+            newDroneRadius.name = newDrone.name + "Radius";
+            neighbours.Add(newDrone);
         }
+        GameObject dead = GameObject.Find("Dead");
+        dead.SetActive(false);
+        GameObject deadRadius = GameObject.Find("DeadRadius");
+        deadRadius.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -83,7 +89,7 @@ public class CircleScript4 : MonoBehaviour
     {
         gameObject.GetComponent<Renderer>().material.color = new Color32(255, 255, 255, 255);
 
-
+        
         foreach (GameObject neighbour in neighbours)
         {
             float dis = dist(transform.position.x, transform.position.y, rayLength, neighbour.transform.position.x, neighbour.transform.position.y, (neighbour.transform.localScale.x / 2));
@@ -94,7 +100,7 @@ public class CircleScript4 : MonoBehaviour
             }
             if (dis <= 0) // if a neighbour is within the detection radius
             {
-                //gameObject.GetComponent<Renderer>().material.color = new Color32(0, 0, 0, 255);
+                gameObject.GetComponent<Renderer>().material.color = new Color32(0, 0, 0, 255);
                 //print("Green: in range!");
                 // find if neighbout is on the left or right of current trajectory
                 float dy = movement.y - transform.position.y;
@@ -121,9 +127,8 @@ public class CircleScript4 : MonoBehaviour
                     float newX = Mathf.Cos(turnAngle) * movement.x - Mathf.Sin(turnAngle) * movement.y;
                     float newY = Mathf.Sin(turnAngle) * movement.x + Mathf.Cos(turnAngle) * movement.y;
                     movement = new Vector2(newX, newY);
-
-                }
-                else if (neighbour.transform.position.x < testX)
+                    
+                } else if (neighbour.transform.position.x < testX)
                 {
                     //print("Object is on the left so I'm steering right");
                     // point is on left side so steer to the right
@@ -151,7 +156,4 @@ public class CircleScript4 : MonoBehaviour
         //print("final: " + final);
         return final;
     }
-
-    
-    
 }
