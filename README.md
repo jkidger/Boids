@@ -38,7 +38,7 @@ Prerequisites:
 There are two projects that you can open, one simulating in 2 dimensions and the other in 3 dimensions.
 As these project folders are quite large, they are located here:
 
-https://bham-my.sharepoint.com/personal/jjk043_student_bham_ac_uk/_layouts/15/guestaccess.aspx?guestaccesstoken=An6zRxTX0ljHx6KNeoCHTEMlcLXX3280xcs7QMUq2OU%3D&folderid=2_0851539b5ba4c463489d25ec6f3105bdb&rev=1&e=vGFrtr
+< LINK REMOVED >
 
 Boids.7z SHA512 Hash: 62626E9ED15D7B6E2CE0A651D6E43E11D996C765B05CF5FDEDA51357115732009B3782CAAE73785330A525B888930D46EEB8BF57725D08CA8D46DF1E6D4AC6B5
 
