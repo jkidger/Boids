@@ -2,9 +2,9 @@ My Final Year Project for my Bachelors degree in Computer Science at the Univers
 
 [Link to project report](https://jkidger.co.uk/static/Report.pdf)
 
-## An Investigation into Drone Swarms & Swarm Intelligence
+# An Investigation into Drone Swarms & Swarm Intelligence
 
-# Abstract
+## Abstract
 The management of drone swarms currently faces multiple logistical issues, particularly concerning
 collisions between members and with the environment. Groups of animals, such as flocks of birds
 and schools of fish, exhibit behaviours to stay as a cohesive flock, whilst avoiding injury from
